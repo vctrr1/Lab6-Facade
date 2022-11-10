@@ -1,14 +1,18 @@
 package models;
 
+import java.util.UUID;
+
 public class Location {
     private String block;
     private int floor;
     private String series;
+    private UUID id;
 
     public Location (String block, int floor, String series){
         this.block = block;
         this.floor = floor;
         this.series = series;
+        this.id = UUID.randomUUID();
     }
 
     public void setBlock(String block){
@@ -21,6 +25,10 @@ public class Location {
 
     public void setSeries(String series){
         this.series = series;
+    }
+
+    public String getId(){
+        return this.id.toString();
     }
 
     public String getLocationName(){

@@ -8,19 +8,32 @@ public class Course {
     private String title;
     private Registry professor;
     private ArrayList<Registry> students;
-    private String classroomName;
+    private Location location;
     private UUID id;
 
-    public Course (String title, Registry professor, String classroomName){
+    public Course (String title, Registry professor, Location location){
         this.title = title;
         this.professor = professor;
         this.students = new ArrayList<>();
-        this.classroomName = classroomName;
+        this.location = location;
         this.id = UUID.randomUUID();
     }
 
     public String getTitle(){
         return this.title;
+    }
+
+    public void setTitle(String title){
+        this.title = title;
+    }
+
+    
+    public void setLocation(Location location){
+        this.location = location;
+    }
+
+    public void setProfessor(Registry professor){
+        this.professor = professor;
     }
     
     public String getId(){
@@ -31,8 +44,8 @@ public class Course {
         return professor;
     }
 
-    public String getClassroomName(){
-        return this.classroomName;
+    public Location getLocation(){
+        return this.location;
     }
 
 

@@ -3,59 +3,76 @@ package repositories;
 import java.util.ArrayList;
 
 import models.Course;
+import models.Location;
 import models.Professor;
 import models.Registry;
 import utils.Constraints;
 
-public class CourseRepository{
+public class CourseRepository {
 
     private static ArrayList<Course> courses = new ArrayList<>();
 
-    public CourseRepository(){
+    public CourseRepository() {
 
     }
 
-    public static boolean store(String title, String professorId, String classroom) {
-        if(!(Constraints.isValidTitle(title) && Constraints.isValidClassroom(classroom))) return false;
+    public static boolean store(String title, String professorId, String locationId) {
+        if (!(Constraints.isValidTitle(title) && Constraints.isValidID(professorId)
+                && Constraints.isValidID(locationId)))
+            return false;
         Registry professor = RegistryRepository.findOne(professorId);
-        if(professor == null)
+        if (professor == null)
             return false;
-        if(!(professor.getPerson() instanceof Professor))
+        if (!(professor.getPerson() instanceof Professor))
             return false;
-    
-        courses.add(new Course(title, professor, classroom));
+
+        Location location = LocationRepository.findOne(locationId);
+        if (location == null)
+            return false;
+
+        courses.add(new Course(title, professor, location));
         return true;
-    } 
+    }
 
-    public static boolean update(String title, String professorId, String classroom, String courseId) {
-        if (!Constraints.isValidID(professorId)) return false;
-        Registry professor = RegistryRepository.findOne(professorId);
-        if(professor == null)
+    public static boolean update(String title, String professorId, String locationId, String courseId) {
+        if (!Constraints.isValidID(courseId))
             return false;
-        if(!(professor.getPerson() instanceof Professor))
-            return false;
-        /*for (int i = 0; i < courses.size(); i++) {
+
+        for (int i = 0; i < courses.size(); i++) {
             if (courses.get(i).getId().equals(courseId)) {
-                if (validProperties[0])
-                    courses.get(i).setName(name);
+                if (true)
+                    courses.get(i).setTitle(title);
 
-                if (validProperties[1])
-                    ((Course) courses.get(i)).set(wage);
+                if (Constraints.isValidID(professorId)) {
+                    Registry professor = RegistryRepository.findOne(professorId);
+                    if (professor != null)
+
+                        if (professor.getPerson() instanceof Professor)
+                            courses.get(i).setProfessor(professor);
+                    ;
+                }
+
+                if (Constraints.isValidID(locationId)) {
+                    Location location = LocationRepository.findOne(locationId);
+                    if (location != null)
+                        courses.get(i).setLocation(location);
+                }
 
                 return true;
             }
-        }*/
-        //return false;
-        
-        return true;
-    } 
+        }
 
-     public static Course findOne(String id) {
-        if (!Constraints.isValidID(id)) return null;
+        return false;
+
+    }
+
+    public static Course findOne(String id) {
+        if (!Constraints.isValidID(id))
+            return null;
         for (int i = 0; i < courses.size(); i++) {
             if (courses.get(i).getId().equals(id)) {
                 return courses.get(i);
-              
+
             }
         }
 
@@ -63,12 +80,13 @@ public class CourseRepository{
 
     }
 
-    public static ArrayList<Course> list(){
+    public static ArrayList<Course> list() {
         return courses;
     }
 
     public static boolean delete(String id) {
-         if (!Constraints.isValidID(id)) return false;
+        if (!Constraints.isValidID(id))
+            return false;
         for (int i = 0; i < courses.size(); i++) {
             if (courses.get(i).getId().equals(id)) {
 
