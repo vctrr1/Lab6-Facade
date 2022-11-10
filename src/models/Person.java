@@ -1,32 +1,26 @@
 package models;
 
-import java.util.UUID;
-import java.util.Date;
-
 public class Person {
 
     private String name;
-    private UUID id;
-    private Date enrolledAt;
+    private int age;
 
-
-    public Person (String name){
+    public Person(String name, int age) {
         this.name = name;
-        this.id = UUID.randomUUID();
-        this.enrolledAt = new Date();
+        this.age = age;
+
     }
 
-    public Date enrolledAt(){
-        return enrolledAt;
-    }
-
-
-    public String getId(){
-        return this.id.toString();
-    }
-
-    protected String getName(){
+    protected String getName() {
         return this.name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    protected int getAge() {
+        return this.age;
     }
 
 }

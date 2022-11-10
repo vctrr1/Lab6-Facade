@@ -6,33 +6,46 @@ import java.util.UUID;
 public class Course {
     
     private String title;
-    private Professor professor;
-    private ArrayList<Student> students;
-    private String classroomName;
+    private Registry professor;
+    private ArrayList<Registry> students;
+    private Location location;
     private UUID id;
 
-    public Course (String title, Professor professor, String classroomName){
+    public Course (String title, Registry professor, Location location){
         this.title = title;
         this.professor = professor;
         this.students = new ArrayList<>();
-        this.classroomName = classroomName;
+        this.location = location;
         this.id = UUID.randomUUID();
     }
 
     public String getTitle(){
         return this.title;
     }
+
+    public void setTitle(String title){
+        this.title = title;
+    }
+
+    
+    public void setLocation(Location location){
+        this.location = location;
+    }
+
+    public void setProfessor(Registry professor){
+        this.professor = professor;
+    }
     
     public String getId(){
         return this.id.toString();
     }
 
-    public Professor getProfessor() {
+    public Registry getProfessor() {
         return professor;
     }
 
-    public String getClassroomName(){
-        return this.classroomName;
+    public Location getLocation(){
+        return this.location;
     }
 
 
