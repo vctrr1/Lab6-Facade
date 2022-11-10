@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import models.Course;
 import models.Professor;
+import models.Registry;
 import utils.Constraints;
 
 public class CourseRepository{
@@ -16,20 +17,23 @@ public class CourseRepository{
 
     public static boolean store(String title, String professorId, String classroom) {
         if(!(Constraints.isValidTitle(title) && Constraints.isValidClassroom(classroom))) return false;
-        Professor professor = ProfessorRepository.findOne(professorId);
+        Registry professor = RegistryRepository.findOne(professorId);
         if(professor == null)
             return false;
-
+        if(!(professor.getPerson() instanceof Professor))
+            return false;
+    
         courses.add(new Course(title, professor, classroom));
         return true;
     } 
 
     public static boolean update(String title, String professorId, String classroom, String courseId) {
         if (!Constraints.isValidID(professorId)) return false;
-        Professor professor = ProfessorRepository.findOne(professorId);
+        Registry professor = RegistryRepository.findOne(professorId);
         if(professor == null)
             return false;
-
+        if(!(professor.getPerson() instanceof Professor))
+            return false;
         /*for (int i = 0; i < courses.size(); i++) {
             if (courses.get(i).getId().equals(courseId)) {
                 if (validProperties[0])

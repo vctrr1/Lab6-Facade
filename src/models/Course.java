@@ -6,12 +6,12 @@ import java.util.UUID;
 public class Course {
     
     private String title;
-    private Professor professor;
-    private ArrayList<Student> students;
+    private Registry professor;
+    private ArrayList<Registry> students;
     private String classroomName;
     private UUID id;
 
-    public Course (String title, Professor professor, String classroomName){
+    public Course (String title, Registry professor, String classroomName){
         this.title = title;
         this.professor = professor;
         this.students = new ArrayList<>();
@@ -27,7 +27,7 @@ public class Course {
         return this.id.toString();
     }
 
-    public Professor getProfessor() {
+    public Registry getProfessor() {
         return professor;
     }
 

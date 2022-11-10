@@ -7,8 +7,11 @@ public class Director extends Person{
     public ArrayList<Meeting> meetings;
     public ArrayList<Interview> interviews;
 
-    public Director(String name){
-        super(name);
+    private double wage;
+
+    public Director(String name, int age, double wage){
+        super(name, age);
+        this.wage = wage;
         this.meetings = new ArrayList<>();
         this.interviews = new ArrayList<>();
     }
@@ -29,6 +32,14 @@ public class Director extends Person{
             this.interviewedPerson = person;
             this.date = date;
         }
+    }
+
+    public void setWage(double wage){
+        this.wage = wage;
+    }
+
+    public double getWage(){
+        return this.wage;
     }
 }
 

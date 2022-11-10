@@ -18,6 +18,10 @@ public class Constraints {
         return wage > 0 && wage < 1000000;
     }
 
+    public static boolean isValidAge(int age){
+        return age > 17 && age < 90;
+    }
+
     public static boolean isValidClassroom(String classroom){
         int length = classroom.length();
         return length > 2 && length < 50;

@@ -7,8 +7,8 @@ public class Student extends Person {
     private ArrayList<Course> formerCourses;
     private ArrayList<Course> currentCourses;
 
-    public Student (String name){
-        super(name);
+    public Student (String name, int age){
+        super(name, age);
         this.formerCourses = new ArrayList<>();
         this.currentCourses = new ArrayList<>();
     }
