@@ -37,11 +37,11 @@ public class RegistryRepository {
         return true;
     }
 
-    public static boolean update(int age, String RegistryId) {
-        if (!(Constraints.isValidAge(age)))
+    public static boolean update(int age, String id) {
+        if (!(Constraints.isValidID(id)))
             return false;
         for (int i = 0; i < registries.size(); i++) {
-            if (registries.get(i).getId().equals(RegistryId)) {
+            if (registries.get(i).getId().equals(id)) {
                 registries.get(i).getPerson().setAge(age);
                 return true;
 

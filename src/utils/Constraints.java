@@ -18,6 +18,10 @@ public class Constraints {
         return wage > 0 && wage < 1000000;
     }
 
+    public static boolean isValidValue(double value){
+        return value > 0 && value < 100000;
+    }
+
     public static boolean isValidAge(int age){
         return age > 17 && age < 90;
     }
