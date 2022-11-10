@@ -2,6 +2,7 @@ package repositories;
 
 import java.util.ArrayList;
 
+import models.Course;
 import models.Student;
 import utils.Constraints;
 
@@ -19,10 +20,17 @@ public class StudentRepository{
         return true;
     } 
 
-    public static boolean update(ArrayList<Course> currentCourses, String studenId ) {
-        i
-        students.add(new Student(name));
-        return true;
+    public static boolean update(ArrayList<Course> currentCourses, String studentId ) {
+        if (!Constraints.isValidID(studentId)) return false;
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getId().equals(studentId)) {
+                students.get(i).setCurrentCourses(currentCourses);
+                return true;
+              
+            }
+        }
+
+        return false;
     } 
 
     public static Student findOne(String id) {

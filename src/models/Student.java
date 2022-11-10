@@ -23,6 +23,11 @@ public class Student extends Person {
         return this.currentCourses;
     }
 
+    public void setCurrentCourses(ArrayList<Course> currentCourses){
+        this.currentCourses = currentCourses;
+    }
+
+
 
 
 }
