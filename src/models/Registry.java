@@ -10,11 +10,13 @@ public class Registry {
     private UUID id;
     private Date createdAt;
     private ArrayList<Course> courses;
+    private History history;
 
     public Registry(Person person){
         this.person = person;
         this.id = UUID.randomUUID();
         this.createdAt = new Date();
+        this.history = new History();
     }
 
     public ArrayList<Course> getCourses(){
@@ -27,6 +29,10 @@ public class Registry {
 
     public Person getPerson(){
         return this.person;
+    }
+
+    public History geHistory(){
+        return this.history;
     }
 
     public String getId(){
