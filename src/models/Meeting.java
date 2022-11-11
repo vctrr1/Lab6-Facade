@@ -8,8 +8,8 @@ public class Meeting {
     private Location location;
     private ArrayList<Person> people;
 
-    public Meeting(Location location, Date date){
-        this.people = new ArrayList<>();
+    public Meeting(Location location, Date date, ArrayList<Person> people){
+        this.people = people;
         this.location = location;
         this.date = date;
     }

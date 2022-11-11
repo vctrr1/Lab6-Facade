@@ -31,11 +31,13 @@ public class Registry {
         return this.person;
     }
 
-    public History geHistory(){
+    public History getHistory(){
         return this.history;
     }
 
     public String getId(){
         return this.id.toString();
     }
+
+
 }

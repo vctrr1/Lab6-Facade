@@ -34,4 +34,12 @@ public class Location {
     public String getLocationName(){
         return block + "-" + String.valueOf(floor) + this.series;
     }
+
+    public Object getLocation() {
+        return null;
+    }
+
+	public String getBlock() {
+		return this.block.toString();
+	}
 }

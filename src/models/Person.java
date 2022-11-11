@@ -11,7 +11,7 @@ public class Person {
 
     }
 
-    protected String getName() {
+    public String getName() {
         return this.name;
     }
 
@@ -19,7 +19,7 @@ public class Person {
         this.age = age;
     }
 
-    protected int getAge() {
+    public int getAge() {
         return this.age;
     }
 

@@ -1,6 +1,8 @@
 package models;
 
-public class Professor extends Person{
+import interfaces.Employee;
+
+public class Professor extends Person implements Employee{
 
     private double wage;
     private boolean isTemporary;

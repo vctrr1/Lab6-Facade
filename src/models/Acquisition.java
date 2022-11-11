@@ -17,7 +17,7 @@ public class Acquisition {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -39,4 +39,6 @@ public class Acquisition {
     public String getId() {
         return this.id.toString();
     }
+
+
 }

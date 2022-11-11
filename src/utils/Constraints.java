@@ -6,6 +6,8 @@ public class Constraints {
 
     public static boolean isValidName(String name){
         int length = name.length();
+        if(name.matches("[^A-Za-z0-9]+"))
+            return false;
         return length > 2 && length < 21;
     }
 

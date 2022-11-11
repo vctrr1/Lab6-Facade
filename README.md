@@ -1,18 +1,18 @@
-## Getting Started
+FACADE
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+    allocateLocation();    #
 
-## Folder Structure
+    showAcquisitions(); //exibir produtos pagos    #
+    showFutureAcquisitions(); exibir produtos não pagos    #
 
-The workspace contains two folders by default, where:
+    showHistory(Registry student); exibir histórico    #
+    showRegistry(Registry student); exibir Rdm    #
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+    showProfessorCourses(); exibir professores e suas disciplinas
+    showEnrollmentTime(); exibir tempo de casa do Professor
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+    showAccountBalance(); exibir total das despesas #
+    showPayroll(); exibir o salario de todos os funcionários; #
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+    showMeetings(); exibir todas as reuniões #
+    showInterviews(); exibir todas as entrevistas #
