@@ -45,7 +45,13 @@ public class Constraints {
     }
 
     public static boolean isValidID(String supposedId){
-        return UUID.fromString(supposedId).toString().equals(supposedId);
+        try{
+            UUID.fromString(supposedId).toString().equals(supposedId);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+      
     }
 
 }
