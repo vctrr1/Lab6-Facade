@@ -17,6 +17,7 @@ public class Registry {
         this.id = UUID.randomUUID();
         this.createdAt = new Date();
         this.history = new History();
+        this.courses =  new ArrayList<Course>();
     }
 
     public ArrayList<Course> getCourses(){

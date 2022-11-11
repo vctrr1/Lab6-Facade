@@ -37,10 +37,10 @@ public class CourseRepository {
     public static boolean update(String title, String professorId, String locationId, String courseId) {
         if (!Constraints.isValidID(courseId))
             return false;
-
+       
         for (int i = 0; i < courses.size(); i++) {
             if (courses.get(i).getId().equals(courseId)) {
-                if (true)
+                if (Constraints.isValidTitle(title))
                     courses.get(i).setTitle(title);
 
                 if (Constraints.isValidID(professorId)) {

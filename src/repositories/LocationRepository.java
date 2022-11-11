@@ -14,6 +14,7 @@ public class LocationRepository {
     }
 
     public static boolean store(String block, int floor, String series) {
+        //System.out.printf("%b - %b - %b\n", Constraints.isValidBlock(block), Constraints.isValidFloor(floor), Constraints.isValidSeries(series));
         if (!(Constraints.isValidBlock(block) && Constraints.isValidFloor(floor) && Constraints.isValidSeries(series)))
             return false;
         locations.add(new Location(block, floor, series));
